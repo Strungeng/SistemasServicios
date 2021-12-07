@@ -9,6 +9,9 @@
 <body>
         <?php
         $automatico1=fopen("/etc/bind/zones/db.basetodos.com", "w");
+    /* /etc/bind/zones/db.$_REQUEST['zona'] --> crear un archivo de zona para cada web
+       /etc/bind/named.conf.local, "a+" --> AÑADIR una zona al archivo, en lugar de sobreescribir la zona (sobreescribiendo solo hay 1 zona)
+    */
         $automatico2=fopen("/etc/bind/named.conf.local", "w ");
         
 $tocho="\$ttl 3600
@@ -48,13 +51,6 @@ $_REQUEST[name3].  IN  $_REQUEST[reg3]   $_REQUEST[dir3]
                 echo "te faltan datos craaaaack";
             }
         }
-
-        /* Crear un boton para añadir una linea que sea una nueva direccion 
-        --> meter un FORM con action "" dentro del FORM con action "procesa,php"
-        poner todos las lineas como nu array
-        recorrer el array
-        escribir en el archivo los arrays
-        */  
 
     ?>
         <br><br><br>
